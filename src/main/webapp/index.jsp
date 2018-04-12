@@ -21,21 +21,19 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-
     <!-- Custom styles for this template -->
     <link href="css/jumbotron.css" rel="stylesheet">
 
     <script src="./js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="./js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
+    <script src="./js/login_logout.js" type="text/javascript"></script>
     <script src="./js/md5.js" type="text/javascript"></script>
 </head>
 
 <body>
     
     <%@include file="views/layout/layout.jsp" %>
-    
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container">

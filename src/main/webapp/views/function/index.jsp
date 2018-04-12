@@ -31,11 +31,12 @@
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
     <script src="./js/md5.js" type="text/javascript"></script>
+    <script src="./js/login_logout.js" type="text/javascript"></script>
 
 </head>
 <body>
     <%@include file="../layout/layout.jsp"%>
-    <div class="container-fluid">
+    <div class="container-fluid" id="center">
         <div class="row">
             <%@include file="../layout/nav.jsp"%>
 

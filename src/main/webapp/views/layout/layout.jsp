@@ -38,7 +38,7 @@
             </button>
             <a class="navbar-brand" href="/learnC">学习C语言</a>
         </div>
-        <div  class="navbar-collapse collapse">
+        <div  class="navbar-collapse collapse" id="navbar">
             <div class="navbar-form navbar-right">
                 <div class="form-group">
                     <input id="username" name="username" type="text" placeholder="Username" class="form-control">
