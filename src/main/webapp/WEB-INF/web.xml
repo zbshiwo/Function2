@@ -34,12 +34,6 @@
         <servlet-class>com.zb.servlet.FunctionServlet</servlet-class>
     </servlet>
 
-    <!--第一次访问-->
-    <!--<servlet>-->
-        <!--<servlet-name>FirstServlet</servlet-name>-->
-        <!--<servlet-class>com.zb.servlet.FirstServlet</servlet-class>-->
-    <!--</servlet>-->
-
     <!--登录映射路径-->
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -57,11 +51,4 @@
         <servlet-name>FunctionServlet</servlet-name>
         <url-pattern>/function</url-pattern>
     </servlet-mapping>
-
-
-    <!--第一次访问映射路径-->
-    <!--<servlet-mapping>-->
-    <!--<servlet-name>FirstServlet</servlet-name>-->
-    <!--<url-pattern></url-pattern>-->
-    <!--</servlet-mapping>-->
 </web-app>

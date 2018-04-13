@@ -32,7 +32,7 @@
 
 <body>
     
-    <%@include file="views/layout/layout.jsp" %>
+    <%@include file="./WEB-INF/views/layout/layout.jsp" %>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">

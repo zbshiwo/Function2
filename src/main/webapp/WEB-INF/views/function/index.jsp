@@ -27,11 +27,11 @@
     <link href="css/dashboard.css?v=<%=Math.random()%>" rel="stylesheet">
     <%--<link href="css/zb.css" rel="stylesheet">--%>
 
-    <script src="./js/jquery-3.2.1.js" type="text/javascript"></script>
-    <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="./js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
-    <script src="./js/md5.js" type="text/javascript"></script>
-    <script src="./js/login_logout.js" type="text/javascript"></script>
+    <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
+    <script src="js/md5.js" type="text/javascript"></script>
+    <script src="js/login_logout.js" type="text/javascript"></script>
 
 </head>
 <body>
