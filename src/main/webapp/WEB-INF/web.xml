@@ -22,6 +22,12 @@
         <servlet-class>com.zb.servlet.LoginServlet</servlet-class>
     </servlet>
 
+    <!--注册模块-->
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.zb.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    
     <!--退出-->
     <servlet>
         <servlet-name>logoutServlet</servlet-name>
@@ -33,6 +39,15 @@
         <servlet-name>FunctionServlet</servlet-name>
         <servlet-class>com.zb.servlet.FunctionServlet</servlet-class>
     </servlet>
+    <!--注册后登陆-->
+    <servlet>
+        <servlet-name>RegisterAndLoginServlet</servlet-name>
+        <servlet-class>com.zb.servlet.RegisterAndLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterAndLoginServlet</servlet-name>
+        <url-pattern>/registerAndLogin</url-pattern>
+    </servlet-mapping>
 
     <!--登录映射路径-->
     <servlet-mapping>
@@ -40,6 +55,12 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <!--注册映射路径-->
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    
     <!--退出映射路径-->
     <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>

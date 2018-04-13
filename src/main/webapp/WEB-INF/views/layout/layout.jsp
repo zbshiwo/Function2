@@ -47,7 +47,7 @@
                     <input id="password" name="password" type="password" placeholder="Password" class="form-control">
                 </div>
                 <button id="loginBox" class="btn btn-success">Sign in</button>
-                <%--<button id="registerBox" type="submit" class="btn btn-success">Sign up</button>--%>
+                <button id="registerBox" class="btn btn-success" onclick="window.location.href='/learnC/register' ">Sign up</button>
             </div>
         </div><!--/.navbar-collapse -->
     </div>
