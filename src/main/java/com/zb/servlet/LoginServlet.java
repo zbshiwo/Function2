@@ -13,8 +13,10 @@ import java.util.Date;
 public class LoginServlet extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String username = null, password = null, userInfo = null;
-
         userInfo = request.getParameter("userInfo");
+        if (userInfo == null || userInfo.split(",").length < 2) {
+            request.getRequestDispatcher("/WEB-INF/views/error/error.html").forward(request, response);
+        }
         username = userInfo.split(",")[0];
         password = userInfo.split(",")[1];
 
@@ -34,7 +36,6 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             String md5Result = StringUtil.getMD5Str(username + password, "UTF-8");
             String base64Result = StringUtil.getBase64(username + ":" + md5Result);
 
-            System.out.println(base64Result);
             response = CookiesUtil.setCookie(response,"userInfo", base64Result, 24*60*60);
 
             out.write(json2);

@@ -19,14 +19,14 @@
     <script type="text/javascript">
         function checkPassword() {
             var loginName = $('#loginName').val();
+			var trueName = $('#tryeName');
             var password = $('#password').val();
             var rePassword = $('#rePassword').val();
-            if (loginName == "" || password == "" || rePassword == "") {
+            if (loginName == "" || password == "" || rePassword == "" || trueName == "") {
                 alert("账号密码不能为空！");
                 return;
             }
-            console.log(password);
-            console.log(rePassword);
+            
             if (password != rePassword) {
                 alert("两次输入的密码不一致！")
             }
@@ -42,6 +42,8 @@
         <h2 class="form-signin-heading">Please sign up</h2>
         <label for="loginName" class="sr-only">Login name</label>
         <input type="text" id="loginName" class="form-control" placeholder="Login Name" name="loginName"  autofocus>
+		<label for="trueName" class="sr-only">True Name</label>
+        <input type="text" id="trueName" class="form-control" placeholder="True Name" name="trueName">
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" class="form-control" placeholder="Password" name="password" >
         <label for="Repassword" class="sr-only">Repassword</label>
