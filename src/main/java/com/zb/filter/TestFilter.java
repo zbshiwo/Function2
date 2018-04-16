@@ -36,7 +36,6 @@ public class TestFilter implements Filter {
             String str = StringUtil.getMD5Str(student.getLogin_name() + student.getPassword(), "UTF-8");
             result = str.equals(formatRase64.split(":")[1]);
         }
-        else result = false;
 
         httpServletRequest.setAttribute("result", result);
         httpServletRequest.setAttribute("username", username);

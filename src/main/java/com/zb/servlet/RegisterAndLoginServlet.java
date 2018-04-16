@@ -24,15 +24,20 @@ public class RegisterAndLoginServlet extends HttpServlet {
         }
 
         StudentDao studentDao = new StudentDaoImpl();
+        if (studentDao.isRegisterByLogin_Name(loginName)) {
+            request.getRequestDispatcher("/WEB-INF/views/error/error.html").forward(request, response);
+        }
         Student student = new Student();
         student.setLogin_name(loginName);
         student.setStudent_name(trueName);
-        String md5Result = StringUtil.getMD5Str(password, "UTF-8");
-        student.setPassword(md5Result);
+        String result = StringUtil.getMD5Str(password, "UTF-8");
+        student.setPassword(result);
         studentDao.addStudent(student);
+
+        String md5Result = StringUtil.getMD5Str(loginName + result, "UTF-8");
         String base64Result = StringUtil.getBase64(loginName + ":" + md5Result);
         response = CookiesUtil.setCookie(response,"userInfo", base64Result, 24*60*60);
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        response.sendRedirect("learnC/index.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
