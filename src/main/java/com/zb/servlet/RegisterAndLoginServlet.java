@@ -37,7 +37,7 @@ public class RegisterAndLoginServlet extends HttpServlet {
         String md5Result = StringUtil.getMD5Str(loginName + result, "UTF-8");
         String base64Result = StringUtil.getBase64(loginName + ":" + md5Result);
         response = CookiesUtil.setCookie(response,"userInfo", base64Result, 24*60*60);
-        response.sendRedirect("learnC/index.jsp");
+        response.sendRedirect("index.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
