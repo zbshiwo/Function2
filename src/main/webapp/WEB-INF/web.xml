@@ -70,6 +70,6 @@
     <!--访问函数模块映射路径-->
     <servlet-mapping>
         <servlet-name>FunctionServlet</servlet-name>
-        <url-pattern>/function</url-pattern>
+        <url-pattern>/function/pageone</url-pattern>
     </servlet-mapping>
 </web-app>

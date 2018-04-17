@@ -52,7 +52,7 @@
                     简单的程序都可以定义其他额外的函数。您可以把代码划分到不同的函数中。如何划分代码到不
                     同的函数中是由您来决定的，但在逻辑上，划分通常是根据每个函数执行一个特定的任务来进行的。
                     函数声明告诉编译器函数的名称、返回类型和参数。函数定义提供了函数的实际主体。</p>
-                <p><a class="btn btn-default" href="/learnC/function" role="button">了解更多 &raquo;</a></p>
+                <p><a class="btn btn-default" href="/learnC/function/pageone" role="button">了解更多 &raquo;</a></p>
             </div>
             <div class="col-md-4">
                 <h2>Heading</h2>

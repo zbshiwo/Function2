@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class TestFilter implements Filter {
     public void destroy() {
@@ -37,10 +38,24 @@ public class TestFilter implements Filter {
             result = str.equals(formatRase64.split(":")[1]);
         }
 
-        httpServletRequest.setAttribute("result", result);
-        httpServletRequest.setAttribute("username", username);
+        String servletPath = httpServletRequest.getServletPath();
+        if (servletPath.contains(".css") || servletPath.contains(".js")) {
+            chain.doFilter(httpServletRequest, httpServletResponse);
+        }
+        else {
+            String pattern = "/[a-zA-Z]+/[a-zA-Z]+";
+            boolean isMatch = Pattern.matches(pattern, servletPath);
+            if (!result && isMatch) {
+                httpServletRequest.getRequestDispatcher("/WEB-INF/views/error/error.html")
+                        .forward(httpServletRequest, httpServletResponse);
+            }
+            else {
+                httpServletRequest.setAttribute("result", result);
+                httpServletRequest.setAttribute("username", username);
 
-        chain.doFilter(httpServletRequest, httpServletResponse);
+                chain.doFilter(httpServletRequest, httpServletResponse);
+            }
+        }
     }
 
     public void init(FilterConfig config) throws ServletException {

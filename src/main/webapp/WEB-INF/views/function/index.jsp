@@ -18,19 +18,20 @@
     <%--<link rel="icon" href="../../favicon.ico">--%>
 
     <title>C语言函数学习</title>
-
+    <%--在script和link标签中的地址应为本页面的地址--%>
+    <%--或者直接用根目录也可以--%>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/learnC/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom styles for this template -->
-    <link href="css/dashboard.css?v=<%=Math.random()%>" rel="stylesheet">
+    <link href="../css/dashboard.css?v=<%=Math.random()%>" rel="stylesheet">
 
-    <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
-    <script src="js/md5.js" type="text/javascript"></script>
-    <script src="js/login_logout.js" type="text/javascript"></script>
+    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
+    <script src="../js/md5.js" type="text/javascript"></script>
+    <script src="../js/login_logout.js" type="text/javascript"></script>
 
 </head>
 <body>

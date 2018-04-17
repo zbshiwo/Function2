@@ -19,7 +19,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         PrintWriter out = response.getWriter();
 
         if (userInfo == null || userInfo.split(",").length < 2) {
-            out.write(json2);
+            out.write(json1);
             out.close();
         }
         username = userInfo.split(",")[0];
