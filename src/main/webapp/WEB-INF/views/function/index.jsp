@@ -25,13 +25,13 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../css/dashboard.css?v=<%=Math.random()%>" rel="stylesheet">
+    <link href="/learnC/css/dashboard.css?v=<%=Math.random()%>" rel="stylesheet">
 
-    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
-    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
-    <script src="../js/md5.js" type="text/javascript"></script>
-    <script src="../js/login_logout.js" type="text/javascript"></script>
+    <script src="/learnC/js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="/learnC/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/learnC/js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
+    <script src="/learnC/js/md5.js" type="text/javascript"></script>
+    <script src="/learnC/js/login_logout.js" type="text/javascript"></script>
 
 </head>
 <body>

@@ -37,9 +37,15 @@ public class TestFilter implements Filter {
             String str = StringUtil.getMD5Str(student.getLogin_name() + student.getPassword(), "UTF-8");
             result = str.equals(formatRase64.split(":")[1]);
         }
-
         String servletPath = httpServletRequest.getServletPath();
-        if (servletPath.contains(".css") || servletPath.contains(".js")) {
+        String url = httpServletRequest.getRequestURI();
+        if (servletPath.contains(".jsp")) {
+            httpServletRequest.setAttribute("result", result);
+            httpServletRequest.setAttribute("username", username);
+
+            chain.doFilter(httpServletRequest, httpServletResponse);
+        }
+        else if (servletPath.contains(".css") || servletPath.contains(".js")) {
             chain.doFilter(httpServletRequest, httpServletResponse);
         }
         else {
@@ -48,6 +54,7 @@ public class TestFilter implements Filter {
             if (!result && isMatch) {
                 httpServletRequest.getRequestDispatcher("/WEB-INF/views/error/error.html")
                         .forward(httpServletRequest, httpServletResponse);
+                return;
             }
             else {
                 httpServletRequest.setAttribute("result", result);

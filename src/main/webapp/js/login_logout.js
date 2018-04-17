@@ -35,7 +35,7 @@ $(function () {
             url : "/learnC/logout",
             success : function (result) {
                 setTimeout(function () {
-                    window.location.reload();
+                    window.location.href = '/learnC';
                 },1000);
             }
         });
