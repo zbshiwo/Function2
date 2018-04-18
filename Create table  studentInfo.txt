@@ -1,0 +1,8 @@
+CREATE TABLE studentInfo(
+	id INT AUTO_INCREMENT,
+	sid INT,
+	module_name VARCHAR(255),
+	score INT,
+	PRIMARY KEY(id),
+	FOREIGN KEY(sid) REFERENCES student(id)
+);
