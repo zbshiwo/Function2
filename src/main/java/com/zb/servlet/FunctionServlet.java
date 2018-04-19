@@ -12,6 +12,6 @@ public class FunctionServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/function/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/function/pagetwo.jsp").forward(request, response);
     }
 }

@@ -15,7 +15,7 @@
     <%--<script src="js/login_logout.js" type="text/javascript"></script>--%>
 </head>
 <body>
-    <%@include file="./layout.jsp"%>
+    <%@include file="../layout/layout.jsp"%>
     <div class="container-fluid" id="center">
         <div class="row">
             <%@include file="../layout/nav.jsp"%>

@@ -143,7 +143,7 @@ int max(int num1, int num2)
 Max value is : 200
 </pre>
 
-<button href="#" type="button" class="btn btn-success" style="display: block; margin: 0 auto;">阶段检测</button>
+                <button href="#" type="button" class="btn btn-success" style="display: block; margin: 0 auto;">阶段检测</button>
             </div>
         </div>
     </div>
