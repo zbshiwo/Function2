@@ -11,8 +11,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.regex.Pattern;
 
 public class TestFilter implements Filter {
@@ -26,7 +25,10 @@ public class TestFilter implements Filter {
 
         boolean result = false;
         String username = null;
-
+        String pageID = httpServletRequest.getParameter("pageId");
+        String p = "[1-9]";
+        pageID = pageID == null || pageID.length() == 0 || !Pattern.matches(p, pageID)
+                ? "1" : pageID;
         Cookie cookie = CookiesUtil.getCookieByName(httpServletRequest, "userInfo");
         if (cookie != null) {
             StudentDao studentDao = new StudentDaoImpl();
@@ -59,7 +61,7 @@ public class TestFilter implements Filter {
             else {
                 httpServletRequest.setAttribute("result", result);
                 httpServletRequest.setAttribute("username", username);
-
+                httpServletRequest.setAttribute("pageId", pageID);
                 chain.doFilter(httpServletRequest, httpServletResponse);
             }
         }

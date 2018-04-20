@@ -12,6 +12,7 @@ public class FunctionServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/function/pageeight.jsp").forward(request, response);
+        String pageId = (String) request.getAttribute("pageId");
+        request.getRequestDispatcher("/WEB-INF/views/function/page_" + pageId + ".jsp").forward(request, response);
     }
 }
