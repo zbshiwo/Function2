@@ -157,6 +157,7 @@ int main ()
 交换后，b 的值： 100
 </pre>
                 <p>上面的实例表明了，与传值调用不同，引用调用在函数内改变了 a 和 b 的值，实际上也改变了函数外 a 和 b 的值。</p>
+                <button href="#" type="button" class="btn btn-success" style="display: block; margin: 0 auto;">阶段检测</button>
             </div>
         </div>
     </div>

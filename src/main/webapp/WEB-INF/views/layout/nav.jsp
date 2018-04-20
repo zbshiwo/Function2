@@ -36,6 +36,7 @@
                 <li><a href="#">变量存储类别</a></li>
                 <li><a href="#">内部函数和外部函数</a></li>
                 <li><a href="#">C语言的标准库函数</a></li>
+                <li><a href="#">关于&nbsp;main&nbsp;函数的参数</a></li>
                 <li><a href="#">数组与函数，指针与函数</a></li>
             </ul>
         </li>
