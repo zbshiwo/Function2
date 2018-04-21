@@ -20,8 +20,8 @@ $(function () {
                 userInfo : $('#username').val() + ',' + $('#password').val()
             },
             success : function (result) {
-                console.log(result.success);
-                if (result.success === true){
+
+                if (result.success == "true"){
                     setTimeout(function () {
                         window.location.reload();
                     },1000);
@@ -45,26 +45,5 @@ $(function () {
             }
         });
     });
-    // $registerBox.find('button').on('click', function () {
-    //     $.ajax({
-    //         type : "post",
-    //         url : "/blog/login/register",
-    //         dataType : "json",
-    //         data : {
-    //             username:$registerBox.find('[name = "username"]').val(),
-    //             password:$registerBox.find('[name = "password"]').val(),
-    //             repassword:$registerBox.find('[name = "repassword"]').val()
-    //         },
-    //         success : function (result) {
-    //
-    //             $("#error1").html(result.Message.message);
-    //             if (result.Message.success){
-    //                 setTimeout(function () {
-    //                     $loginBox.show();
-    //                     $registerBox.hide();
-    //                 },1000);
-    //             }
-    //         }
-    //     })
-    // });
+
 })

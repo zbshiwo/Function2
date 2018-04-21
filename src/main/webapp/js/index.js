@@ -29,13 +29,12 @@ $(function () {
        return false;
     });
 
-    //
-    //var str = $('#pre').text();
-    //console.log(str);
-    //var replace = str.replace(/(\/\*[\s]*[\S]*[\s]*\*\/)/g, '<font color="red">$1</font>');
-    //console.log(replace);
-    //$('#pre').html(str.replace(/(\/\*[\S]*\*\/)/g, '<font color="red">$1</font>'));
-    //$('#pre').html(replace);
-    //console.log(str);
+    var pre = $('pre');
+
+    for (var i = 0; i < pre.length; i++) {
+        var str = pre.eq(i).text();
+        var replace = str.replace(/(\/\*[\s\S]*\*\/)/g, '<font color="red">$1</font>');
+        pre.eq(i).html(replace);
+    }
 
 })
