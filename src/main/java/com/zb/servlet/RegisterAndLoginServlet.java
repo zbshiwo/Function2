@@ -20,12 +20,16 @@ public class RegisterAndLoginServlet extends HttpServlet {
         String rePassword = request.getParameter("rePassword");
 
         if (loginName == null || password  == null || rePassword == null || trueName == null) {
-            request.getRequestDispatcher("/WEB-INF/views/error/error.html").forward(request, response);
+            request.setAttribute("message", "用户名或密码错误！");
+            request.setAttribute("url", request.getHeader("REFERER"));
+            request.getRequestDispatcher("/WEB-INF/views/error/error.jsp").forward(request, response);
         }
 
         StudentDao studentDao = new StudentDaoImpl();
         if (studentDao.isRegisterByLogin_Name(loginName)) {
-            request.getRequestDispatcher("/WEB-INF/views/error/error.html").forward(request, response);
+            request.setAttribute("message", "用户名已注册！");
+            request.setAttribute("url", request.getHeader("REFERER"));
+            request.getRequestDispatcher("/WEB-INF/views/error/error.jsp").forward(request, response);
         }
         Student student = new Student();
         student.setLogin_name(loginName);

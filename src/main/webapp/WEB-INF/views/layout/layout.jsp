@@ -41,6 +41,9 @@
         <div  class="navbar-collapse collapse" id="navbar">
             <div class="navbar-form navbar-right">
                 <div class="form-group">
+                    <h5 style="color: #ff0000; display: none" id="errorInfo"></h5>
+                </div>
+                <div class="form-group">
                     <input id="username" name="username" type="text" placeholder="Username" class="form-control">
                 </div>
                 <div class="form-group">
@@ -73,7 +76,6 @@
                     <h5 style="color: #398439;">欢迎<%=username%></h5>
                 </div>
                 <button id="logoutBox" class="btn btn-success">退出</button>
-                <%--<button id="registerBox" type="submit" class="btn btn-success">Sign up</button>--%>
             </div>
         </div><!--/.navbar-collapse -->
     </div>

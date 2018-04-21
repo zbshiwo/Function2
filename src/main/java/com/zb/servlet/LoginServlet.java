@@ -14,8 +14,8 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String username = null, password = null, userInfo = null;
         userInfo = request.getParameter("userInfo");
-        String json1 = "{\"message\":\"密码错误!\",\"success\":\"false\"}";
-        String json2 = "{\"message\":\"密码正确!\",\"success\":\"true\"}";
+        String json1 = "{\"message\":\"error!\",\"success\":\"false\"}";
+        String json2 = "{\"message\":\"correct!\",\"success\":\"true\"}";
         PrintWriter out = response.getWriter();
 
         if (userInfo == null || userInfo.split(",").length < 2) {
@@ -28,9 +28,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         StudentDao studentDao = new StudentDaoImpl();
         boolean result = studentDao.isCorrect(username, password);
         response.setCharacterEncoding("UTF-8");
-        response.setContentType("text/json; charset=utf-8");
-
-
+        response.setContentType("text/json; charset=UTF-8");
 
         if (result){
             String md5Result = StringUtil.getMD5Str(username + password, "UTF-8");

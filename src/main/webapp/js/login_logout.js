@@ -20,11 +20,16 @@ $(function () {
                 userInfo : $('#username').val() + ',' + $('#password').val()
             },
             success : function (result) {
-                // console.log("success!");
-                if (result.success){
+                console.log(result.success);
+                if (result.success === true){
                     setTimeout(function () {
                         window.location.reload();
                     },1000);
+                }
+                else {
+                    $('#errorInfo').show().html("密码错误！");
+                    $('#username').val("");
+                    $('#password').val("");
                 }
             }
         });

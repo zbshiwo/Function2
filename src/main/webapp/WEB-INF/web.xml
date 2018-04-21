@@ -10,12 +10,19 @@
         <filter-name>TestFilter</filter-name>
         <filter-class>com.zb.filter.TestFilter</filter-class>
     </filter>
-    <!--test filter-->
     <filter-mapping>
         <filter-name>TestFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    <!--limit filter-->
+    <filter>
+        <filter-name>limitFilter</filter-name>
+        <filter-class>com.zb.filter.limitFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>limitFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!--登录-->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>

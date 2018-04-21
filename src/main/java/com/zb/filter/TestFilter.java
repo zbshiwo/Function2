@@ -25,11 +25,8 @@ public class TestFilter implements Filter {
 
         boolean result = false;
         String username = null;
-        String pageID = httpServletRequest.getParameter("pageId");
-        String p = "[1-9]";
-        pageID = pageID == null || pageID.length() == 0 || !Pattern.matches(p, pageID)
-                ? "1" : pageID;
         Cookie cookie = CookiesUtil.getCookieByName(httpServletRequest, "userInfo");
+
         if (cookie != null) {
             StudentDao studentDao = new StudentDaoImpl();
             String formatRase64 = StringUtil.getFormatBase64(cookie.getValue());
@@ -39,32 +36,9 @@ public class TestFilter implements Filter {
             String str = StringUtil.getMD5Str(student.getLogin_name() + student.getPassword(), "UTF-8");
             result = str.equals(formatRase64.split(":")[1]);
         }
-        String servletPath = httpServletRequest.getServletPath();
-        String url = httpServletRequest.getRequestURI();
-        if (servletPath.contains(".jsp")) {
-            httpServletRequest.setAttribute("result", result);
-            httpServletRequest.setAttribute("username", username);
-
-            chain.doFilter(httpServletRequest, httpServletResponse);
-        }
-        else if (servletPath.contains(".css") || servletPath.contains(".js")) {
-            chain.doFilter(httpServletRequest, httpServletResponse);
-        }
-        else {
-            String pattern = "/[a-zA-Z]+/[a-zA-Z]+";
-            boolean isMatch = Pattern.matches(pattern, servletPath);
-            if (!result && isMatch) {
-                httpServletRequest.getRequestDispatcher("/WEB-INF/views/error/error.html")
-                        .forward(httpServletRequest, httpServletResponse);
-                return;
-            }
-            else {
-                httpServletRequest.setAttribute("result", result);
-                httpServletRequest.setAttribute("username", username);
-                httpServletRequest.setAttribute("pageId", pageID);
-                chain.doFilter(httpServletRequest, httpServletResponse);
-            }
-        }
+        httpServletRequest.setAttribute("result", result);
+        httpServletRequest.setAttribute("username", username);
+        chain.doFilter(httpServletRequest, httpServletResponse);
     }
 
     public void init(FilterConfig config) throws ServletException {
