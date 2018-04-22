@@ -33,8 +33,13 @@ public class TestFilter implements Filter {
             username = formatRase64.split(":")[0];
 
             Student student = studentDao.queryByName(formatRase64.split(":")[0]);
-            String str = StringUtil.getMD5Str(student.getLogin_name() + student.getPassword(), "UTF-8");
-            result = str.equals(formatRase64.split(":")[1]);
+            if (student == null) {
+                result = false;
+            }
+            else {
+                String str = StringUtil.getMD5Str(student.getLogin_name() + student.getPassword(), "UTF-8");
+                result = str.equals(formatRase64.split(":")[1]);
+            }
         }
         httpServletRequest.setAttribute("result", result);
         httpServletRequest.setAttribute("username", username);

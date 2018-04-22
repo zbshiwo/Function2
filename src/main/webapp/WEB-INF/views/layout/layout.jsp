@@ -44,13 +44,19 @@
                     <h5 style="color: #ff0000; display: none" id="errorInfo"></h5>
                 </div>
                 <div class="form-group">
-                    <input id="username" name="username" type="text" placeholder="Username" class="form-control">
+                    <input id="loginName" name="loginName" type="text" placeholder="LoginName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input id="trueName" name="trueName" type="text" placeholder="TrueName" class="form-control" style="display: none">
                 </div>
                 <div class="form-group">
                     <input id="password" name="password" type="password" placeholder="Password" class="form-control">
                 </div>
+                <div class="form-group">
+                    <input id="repassword" name="repassword" type="password" placeholder="Repassword" class="form-control" style="display:none;">
+                </div>
                 <button id="loginBox" class="btn btn-success">Sign in</button>
-                <button id="registerBox" class="btn btn-success" onclick="window.location.href='/learnC/register' ">Sign up</button>
+                <button id="registerBox" class="btn btn-success">Sign up</button>
             </div>
         </div><!--/.navbar-collapse -->
     </div>

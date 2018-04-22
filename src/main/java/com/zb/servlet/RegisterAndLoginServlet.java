@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class RegisterAndLoginServlet extends HttpServlet {
     private static final String[] functionModuleName = {"function_page_one","function_page_two","function_page_three",
@@ -24,19 +25,25 @@ public class RegisterAndLoginServlet extends HttpServlet {
         String loginName = request.getParameter("loginName");
         String trueName = request.getParameter("trueName");
         String password = request.getParameter("password");
-        String rePassword = request.getParameter("rePassword");
+        String rePassword = request.getParameter("repassword");
+        String json1 = "{\"message\":\"error!\",\"success\":\"false\"}";
+        String json2 = "{\"message\":\"correct!\",\"success\":\"true\"}";
+        String json3 = "{\"message\":\"用户名已注册！\",\"success\":\"false\"}";
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("text/json; charset=utf-8");
+        PrintWriter out = response.getWriter();
 
         if (loginName == null || password  == null || rePassword == null || trueName == null) {
-            request.setAttribute("message", "用户名或密码错误！");
-            request.setAttribute("url", request.getHeader("REFERER"));
-            request.getRequestDispatcher("/WEB-INF/views/error/error.jsp").forward(request, response);
+            out.write(json1);
+            out.close();
+            return;
         }
 
         StudentDao studentDao = new StudentDaoImpl();
         if (studentDao.isRegisterByLogin_Name(loginName)) {
-            request.setAttribute("message", "用户名已注册！");
-            request.setAttribute("url", request.getHeader("REFERER"));
-            request.getRequestDispatcher("/WEB-INF/views/error/error.jsp").forward(request, response);
+            out.write(json3);
+            out.close();
+            return;
         }
         Student student = new Student();
         student.setLogin_name(loginName);
@@ -62,7 +69,8 @@ public class RegisterAndLoginServlet extends HttpServlet {
         String md5Result = StringUtil.getMD5Str(loginName + result, "UTF-8");
         String base64Result = StringUtil.getBase64(loginName + ":" + md5Result);
         response = CookiesUtil.setCookie(response,"userInfo", base64Result, 24*60*60);
-        response.sendRedirect("index.jsp");
+        out.write(json2);
+        out.close();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
