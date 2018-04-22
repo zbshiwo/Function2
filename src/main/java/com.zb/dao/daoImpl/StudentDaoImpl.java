@@ -24,8 +24,6 @@ public class StudentDaoImpl implements StudentDao {
             preparedStatement.setString(3, student.getPassword());
 
             preparedStatement.executeUpdate();
-            System.out.println("添加学生成功!");
-
         } catch (SQLException e){
             e.printStackTrace();
         } finally {

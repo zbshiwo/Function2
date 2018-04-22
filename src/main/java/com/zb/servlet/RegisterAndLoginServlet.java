@@ -1,8 +1,11 @@
 package com.zb.servlet;
 
 import com.zb.dao.StudentDao;
+import com.zb.dao.StudentInfoDao;
 import com.zb.dao.daoImpl.StudentDaoImpl;
+import com.zb.dao.daoImpl.StudentInfoDaoImpl;
 import com.zb.model.Student;
+import com.zb.model.StudentInfo;
 import com.zb.util.CookiesUtil;
 import com.zb.util.StringUtil;
 
@@ -13,6 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class RegisterAndLoginServlet extends HttpServlet {
+    private static final String[] functionModuleName = {"function_page_one","function_page_two","function_page_three",
+            "function_page_four","function_page_five","function_page_six",
+            "function_page_seven","function_page_eight","function_page_nine"};
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String loginName = request.getParameter("loginName");
         String trueName = request.getParameter("trueName");
@@ -37,6 +44,20 @@ public class RegisterAndLoginServlet extends HttpServlet {
         String result = StringUtil.getMD5Str(password, "UTF-8");
         student.setPassword(result);
         studentDao.addStudent(student);
+
+        int studentId = studentDao.queryByName(loginName).getId();
+        StudentInfo[] studentInfos = new StudentInfo[functionModuleName.length];
+        for (int i = 0; i < 9; i++) {
+            StudentInfo studentInfo = new StudentInfo();
+            studentInfo.setSid(studentId);
+            studentInfo.setModule_name(functionModuleName[i]);
+            if (i == 0)
+                studentInfo.setScore(0);
+            else studentInfo.setScore(-1);
+            studentInfos[i] = studentInfo;
+        }
+        StudentInfoDao studentInfoDao = new StudentInfoDaoImpl();
+        studentInfoDao.addStudentInfo(studentInfos);
 
         String md5Result = StringUtil.getMD5Str(loginName + result, "UTF-8");
         String base64Result = StringUtil.getBase64(loginName + ":" + md5Result);

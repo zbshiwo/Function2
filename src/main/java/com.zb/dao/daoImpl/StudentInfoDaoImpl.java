@@ -15,19 +15,20 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
     ResultSet resultSet = null;
 
     @Override
-    public void addStudentInfo(StudentInfo studentInfo) {
+    public void addStudentInfo(StudentInfo[] studentInfo) {
         String sql = "INSERT INTO studentInfo (sid, module_name, score) VALUES (?, ?, ?)";
 
         try{
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setInt(1, studentInfo.getSid());
-            preparedStatement.setString(2, studentInfo.getModule_name());
-            preparedStatement.setInt(3, studentInfo.getScore());
+            for (int i = 0; i < studentInfo.length; i++) {
+                preparedStatement.setInt(1, studentInfo[i].getSid());
+                preparedStatement.setString(2, studentInfo[i].getModule_name());
+                preparedStatement.setInt(3, studentInfo[i].getScore());
 
-            preparedStatement.executeUpdate();
-            System.out.println("添加学生成绩成功!");
+                preparedStatement.executeUpdate();
+            }
 
         } catch (SQLException e){
             e.printStackTrace();
@@ -59,5 +60,10 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
             DBUtil.closeAll(resultSet, preparedStatement, connection);
         }
         return studentInfo;
+    }
+
+    @Override
+    public void updateScoreBySidAndModuleName(int sid, String moduleName) {
+
     }
 }
