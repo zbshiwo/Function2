@@ -5,7 +5,7 @@
 <web-app>
 
   <display-name>Archetype Created Web Application</display-name>
-    <!--test filter-->
+    <!--test filter 查看cookie中的登录信息-->
     <filter>
         <filter-name>TestFilter</filter-name>
         <filter-class>com.zb.filter.TestFilter</filter-class>
@@ -15,7 +15,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--limit filter-->
+    <!--limit filter 未登录的禁止访问-->
     <filter>
         <filter-name>limitFilter</filter-name>
         <filter-class>com.zb.filter.limitFilter</filter-class>
@@ -24,6 +24,17 @@
         <filter-name>limitFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!--Authority Filter 无权限的禁止访问-->
+    <filter>
+        <filter-name>AuthorityFilter</filter-name>
+        <filter-class>com.zb.filter.AuthorityFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthorityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!--登录-->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -39,12 +50,21 @@
         <servlet-name>logoutServlet</servlet-name>
         <servlet-class>com.zb.servlet.LogoutServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
 
     <!--访问函数模块-->
     <servlet>
         <servlet-name>FunctionServlet</servlet-name>
         <servlet-class>com.zb.servlet.FunctionServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>FunctionServlet</servlet-name>
+        <url-pattern>/function/page</url-pattern>
+    </servlet-mapping>
+
     <!--注册后登陆-->
     <servlet>
         <servlet-name>RegisterAndLoginServlet</servlet-name>
@@ -54,16 +74,14 @@
         <servlet-name>RegisterAndLoginServlet</servlet-name>
         <url-pattern>/registerAndLogin</url-pattern>
     </servlet-mapping>
-    
-    <!--退出映射路径-->
-    <servlet-mapping>
-        <servlet-name>logoutServlet</servlet-name>
-        <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
 
-    <!--访问函数模块映射路径-->
+    <!--答题页面-->
+    <servlet>
+        <servlet-name>QuestionServlet</servlet-name>
+        <servlet-class>com.zb.servlet.QuestionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>FunctionServlet</servlet-name>
-        <url-pattern>/function/page</url-pattern>
+        <servlet-name>QuestionServlet</servlet-name>
+        <url-pattern>/function/question</url-pattern>
     </servlet-mapping>
 </web-app>

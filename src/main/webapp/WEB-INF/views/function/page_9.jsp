@@ -60,12 +60,11 @@ int max(int x, int y)
     return x > y ? x : y;
 }
 
-int main(void)
+int main()
 {
     /* p 是函数指针 */
     int (* p)(int, int) = & max; // &可以省略
-    //int (*p)(int x, int y) = max;
-    //int (*p)() = max;   这样都可以
+
     int a, b, c, d;
 
     printf("请输入三个数字:");
@@ -96,20 +95,20 @@ int main(void)
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
 
-// 回调函数
+/* 回调函数 */
 void populate_array(int *array, size_t arraySize, int (*getNextValue)(void))
 {
     for (size_t i=0; i &lt; arraySize; i++)
         array[i] = getNextValue();
 }
 
-// 获取随机值
-int getNextRandomValue(void)
+/* 获取随机值 */
+int getNextRandomValue()
 {
     return rand();
 }
 
-int main(void)
+int main()
 {
     int myarray[10];
     populate_array(myarray, 10, getNextRandomValue);
