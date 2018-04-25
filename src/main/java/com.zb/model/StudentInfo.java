@@ -5,6 +5,15 @@ public class StudentInfo {
     private int sid;
     private String module_name;
     private int score;
+    private byte limits;
+
+    public byte getLimits() {
+        return limits;
+    }
+
+    public void setLimits(byte limits) {
+        this.limits = limits;
+    }
 
     public int getId() {
         return id;

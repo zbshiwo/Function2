@@ -58,9 +58,10 @@ public class RegisterAndLoginServlet extends HttpServlet {
             StudentInfo studentInfo = new StudentInfo();
             studentInfo.setSid(studentId);
             studentInfo.setModule_name(functionModuleName[i]);
+            studentInfo.setScore(0);
             if (i == 0)
-                studentInfo.setScore(0);
-            else studentInfo.setScore(-1);
+                studentInfo.setLimits((byte)0);
+            else studentInfo.setLimits((byte)-1);
             studentInfos[i] = studentInfo;
         }
         StudentInfoDao studentInfoDao = new StudentInfoDaoImpl();

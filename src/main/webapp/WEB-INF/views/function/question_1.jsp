@@ -21,6 +21,9 @@
         <div class="row">
             <%@include file="../layout/nav.jsp"%>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div style="display: none">
+                    <p>你的成绩是<%=request.getAttribute("score")%></p>
+                </div>
                 <form>
                     <p>1、下列叙述中正确的是(&nbsp;)</p>
                     <ul style="list-style-type: none">
@@ -109,30 +112,59 @@
                     </ul>
                 </form>
                 <form>
-                    <p>4、 以下正确的函数定义形式是：（&nbsp;）</p>
+                <p>4、 以下正确的函数定义形式是：（&nbsp;）</p>
+                <ul style="list-style-type: none">
+                    <li>
+                        <div class="radio radio-success">
+                            <input type="radio" id="question4Radio1" value="option2" name="function_question_4" >
+                            <label for="question4Radio1">A. double  fun(int x,int y);{}	</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-success">
+                            <input type="radio" id="question4Radio2" value="option2" name="function_question_4" >
+                            <label for="question4Radio2">B.	double  fun(int x ;int y){}</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-success">
+                            <input type="radio" id="question4Radio3" value="option2" name="function_question_4" >
+                            <label for="question4Radio3">C. double  fun(int x,int y){} </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-success">
+                            <input type="radio" id="question4Radio4" value="option2" name="function_question_4" >
+                            <label for="question4Radio4">D.     double  fun(int x, y);{}</label>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+                <form>
+                    <p>5、以下关于return语句叙述中正确的是（&nbsp;）</p>
                     <ul style="list-style-type: none">
                         <li>
                             <div class="radio radio-success">
-                                <input type="radio" id="question4Radio1" value="option2" name="function_question_4" >
-                                <label for="question4Radio1">A. double  fun(int x,int y);{}	</label>
+                                <input type="radio" id="question5Radio1" value="option2" name="function_question_5" >
+                                <label for="question5Radio1">A.一个自定义函数中必须有一条return语句	</label>
                             </div>
                         </li>
                         <li>
                             <div class="radio radio-success">
-                                <input type="radio" id="question4Radio2" value="option2" name="function_question_4" >
-                                <label for="question4Radio2">B.	double  fun(int x ;int y){}</label>
+                                <input type="radio" id="question5Radio2" value="option2" name="function_question_5" >
+                                <label for="question5Radio2">B.	一个自定义函数中可以根据不同情况设置多条return语句</label>
                             </div>
                         </li>
                         <li>
                             <div class="radio radio-success">
-                                <input type="radio" id="question4Radio3" value="option2" name="function_question_4" >
-                                <label for="question4Radio3">C. double  fun(int x,int y){} </label>
+                                <input type="radio" id="question5Radio3" value="option2" name="function_question_5" >
+                                <label for="question5Radio3">C. 定义void类型的函数中可以有带返回值的return语句 </label>
                             </div>
                         </li>
                         <li>
                             <div class="radio radio-success">
-                                <input type="radio" id="question4Radio4" value="option2" name="function_question_4" >
-                                <label for="question4Radio4">D.     double  fun(int x, y);{}</label>
+                                <input type="radio" id="question5Radio4" value="option2" name="function_question54" >
+                                <label for="question5Radio4">D.没有return语句的自定义函数在执行结束时不能返回到调用处</label>
                             </div>
                         </li>
                     </ul>

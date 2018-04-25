@@ -22,8 +22,13 @@ public class limitFilter implements Filter {
 
         Boolean result = (Boolean) httpServletRequest.getAttribute("result");
         String servletPath = httpServletRequest.getServletPath();
-        String url = httpServletRequest.getHeader("REFERER");
-
+        String url = "http://" + httpServletRequest.getServerName()
+                + ":" +httpServletRequest.getServerPort()
+                + httpServletRequest.getContextPath();
+        //getServerName()  得到的是localhost
+        //getServletPath() 得到的是/learnC/function
+        //getContextPath() 得到的是/learnC
+        //getServerPort() 得到的是80
         if (servletPath.contains(".css") || servletPath.contains(".js")) {
             chain.doFilter(httpServletRequest, httpServletResponse);
         }
@@ -37,6 +42,7 @@ public class limitFilter implements Filter {
                         .forward(httpServletRequest, httpServletResponse);
                 return;
             } else {
+                httpServletRequest.setAttribute("isMatch", isMatch);
                 httpServletRequest.setAttribute("pageId", pageID);
                 chain.doFilter(httpServletRequest, httpServletResponse);
             }

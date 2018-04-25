@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class StudentInfoDaoImpl implements StudentInfoDao {
     Connection connection = null;
@@ -16,7 +17,7 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 
     @Override
     public void addStudentInfo(StudentInfo[] studentInfo) {
-        String sql = "INSERT INTO studentInfo (sid, module_name, score) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO studentInfo (sid, module_name, score, limits) VALUES (?, ?, ?, ?)";
 
         try{
             connection = DBUtil.getConnection();
@@ -26,7 +27,7 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
                 preparedStatement.setInt(1, studentInfo[i].getSid());
                 preparedStatement.setString(2, studentInfo[i].getModule_name());
                 preparedStatement.setInt(3, studentInfo[i].getScore());
-
+                preparedStatement.setByte(4, studentInfo[i].getLimits());
                 preparedStatement.executeUpdate();
             }
 
@@ -38,28 +39,29 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
     }
 
     @Override
-    public StudentInfo queryBySidAndModuleName(int sid, String moduleName) {
-        String sql = "SELECT * FROM studentInfo WHERE sid = ? AND module_name = ?";
+    public ArrayList<StudentInfo> queryBySidAndModuleName(int sid) {
+        String sql = "SELECT * FROM studentInfo WHERE sid = ?";
+        ArrayList<StudentInfo> arrayList = new ArrayList<>();
         StudentInfo studentInfo = null;
-
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, sid);
-            preparedStatement.setString(2, moduleName);
             resultSet = preparedStatement.executeQuery();
 
-            if (resultSet.next()){
+            while (resultSet.next()){
                 studentInfo = new StudentInfo();
                 studentInfo.setId(resultSet.getInt("id"));
                 studentInfo.setSid(resultSet.getInt("sid"));
                 studentInfo.setModule_name(resultSet.getString("module_name"));
                 studentInfo.setScore(resultSet.getInt("score"));
+                studentInfo.setLimits(resultSet.getByte("limits"));
+                arrayList.add(studentInfo);
             }
         } catch (SQLException e) {
             DBUtil.closeAll(resultSet, preparedStatement, connection);
         }
-        return studentInfo;
+        return arrayList;
     }
 
     @Override

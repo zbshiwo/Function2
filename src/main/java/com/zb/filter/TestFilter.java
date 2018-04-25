@@ -23,6 +23,7 @@ public class TestFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest)req;
         HttpServletResponse httpServletResponse = (HttpServletResponse)resp;
 
+        int userId = 0;
         boolean result = false;
         String username = null;
         Cookie cookie = CookiesUtil.getCookieByName(httpServletRequest, "userInfo");
@@ -39,10 +40,12 @@ public class TestFilter implements Filter {
             else {
                 String str = StringUtil.getMD5Str(student.getLogin_name() + student.getPassword(), "UTF-8");
                 result = str.equals(formatRase64.split(":")[1]);
+                userId = student.getId();
             }
         }
         httpServletRequest.setAttribute("result", result);
         httpServletRequest.setAttribute("username", username);
+        httpServletRequest.setAttribute("userId", userId);
         chain.doFilter(httpServletRequest, httpServletResponse);
     }
 
