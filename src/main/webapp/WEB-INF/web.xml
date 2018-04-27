@@ -84,4 +84,14 @@
         <servlet-name>QuestionServlet</servlet-name>
         <url-pattern>/function/question</url-pattern>
     </servlet-mapping>
+
+    <!--answer-->
+    <servlet>
+        <servlet-name>AnswerServlet</servlet-name>
+        <servlet-class>com.zb.servlet.AnswerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AnswerServlet</servlet-name>
+        <url-pattern>/function/answer</url-pattern>
+    </servlet-mapping>
 </web-app>

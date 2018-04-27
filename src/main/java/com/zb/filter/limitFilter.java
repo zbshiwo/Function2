@@ -17,7 +17,9 @@ public class limitFilter implements Filter {
 
         String pageID = httpServletRequest.getParameter("pageId");
         String p = "[1-9]";
-        pageID = pageID == null || pageID.length() == 0 || !Pattern.matches(p, pageID)
+        pageID = pageID == null
+                || pageID.length() == 0
+                || !Pattern.matches(p, pageID)
                 ? "1" : pageID;
 
         Boolean result = (Boolean) httpServletRequest.getAttribute("result");
