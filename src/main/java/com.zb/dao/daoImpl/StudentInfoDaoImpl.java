@@ -59,13 +59,27 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
                 arrayList.add(studentInfo);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
             DBUtil.closeAll(resultSet, preparedStatement, connection);
         }
         return arrayList;
     }
 
     @Override
-    public void updateScoreBySidAndModuleName(int sid, String moduleName) {
-
+    public void updateScoreBySidAndModuleName(int sid, String moduleName, int score) {
+        String sql = "UPDATE studentinfo SET score = ? WHERE sid = ? AND module_name = ?";
+        try {
+            connection = DBUtil.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, score);
+            preparedStatement.setInt(2, sid);
+            preparedStatement.setString(3, moduleName);
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeAll(resultSet, preparedStatement, connection);
+        }
     }
 }

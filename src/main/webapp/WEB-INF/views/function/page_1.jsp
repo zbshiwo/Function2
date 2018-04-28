@@ -149,7 +149,7 @@ int max(int num1, int num2)
 Max value is : 200
 </pre>
 
-                <button onclick="window.location.href='/learnC/function/question?pageID=1'" type="submit" class="btn btn-success" style="display: block; margin: 0 auto;">阶段检测</button>
+                <button onclick="window.location.href='/learnC/function/question?pageId=1'" type="submit" class="btn btn-success" style="display: block; margin: 0 auto;">阶段检测</button>
             </div>
         </div>
     </div>

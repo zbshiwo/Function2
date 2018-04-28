@@ -55,6 +55,8 @@ public class StudentDaoImpl implements StudentDao {
                 student.setPassword(resultSet.getString("password"));
             }
         } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
             DBUtil.closeAll(resultSet, preparedStatement, connection);
         }
 

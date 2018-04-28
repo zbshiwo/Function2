@@ -9,6 +9,6 @@ public interface StudentInfoDao {
     public void addStudentInfo(StudentInfo[] studentInfo);
     //通过sid和module_name查询学生成绩
     public ArrayList<StudentInfo> queryBySidAndModuleName(int sid);
-    //通过sid和module_name查询学生成绩
-    public void updateScoreBySidAndModuleName(int sid, String moduleName);
+    //通过sid和module_name修改学生成绩
+    public void updateScoreBySidAndModuleName(int sid, String moduleName, int score);
 }
