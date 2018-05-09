@@ -25,13 +25,7 @@ public class AnswerServlet extends HttpServlet {
             out.close();
             return;
         }
-        String str = request.getHeader("REFERER");
-        String pattern = "(function\\/question\\?pageId\\=)(\\d)";
-        Pattern p = Pattern.compile(pattern);
-        Matcher m = p.matcher(str);
-        if (m.find()) {
 
-        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

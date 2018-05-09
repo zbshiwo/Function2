@@ -18,22 +18,17 @@ public class AuthorityFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest httpServletRequest = (HttpServletRequest)req;
         HttpServletResponse httpServletResponse = (HttpServletResponse)resp;
-
         String servletPath = httpServletRequest.getServletPath();
-        String url = httpServletRequest.getHeader("REFERER");
-
         if (servletPath.contains(".css") || servletPath.contains(".js")) {
-            chain.doFilter(httpServletRequest, httpServletResponse);
+            chain.doFilter(req, resp);
             return;
         }
 
-        boolean isMatch = (boolean)httpServletRequest.getAttribute("isMatch");
         int userId = (int)httpServletRequest.getAttribute("userId");
         String pageId = (String)httpServletRequest.getAttribute("pageId");
-
+        boolean isMatch = (boolean)httpServletRequest.getAttribute("isMatch");
         if (!isMatch) {
-            chain.doFilter(req, resp);
-            return;
+            chain.doFilter(httpServletRequest, httpServletResponse);
         }
         else {
             StudentInfoDao studentInfoDao = new StudentInfoDaoImpl();
@@ -46,7 +41,7 @@ public class AuthorityFilter implements Filter {
             }
             else {
                 httpServletRequest.setAttribute("pageId", "1");
-                chain.doFilter(req, resp);
+                chain.doFilter(httpServletRequest, httpServletResponse);
             }
         }
     }

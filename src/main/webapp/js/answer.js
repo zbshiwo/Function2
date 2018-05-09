@@ -18,7 +18,7 @@ $(function () {
         }
         $.ajax({
             type : "post",
-            url : "/learnC/function/answer",
+            url : "/learnC/function/answer?pageId=" + "",
             dataType : "json",
             data : {
                 "result" : result
