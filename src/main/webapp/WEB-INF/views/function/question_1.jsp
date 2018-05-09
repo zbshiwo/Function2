@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title id="title">测试<%=(String)request.getAttribute("pageId")%></title>
     <!-- Bootstrap core CSS -->
     <link href="/learnC/css/bootstrap.min.css" rel="stylesheet">
 
@@ -14,7 +14,7 @@
     <script src="/learnC/js/index.js" type="text/javascript"></script>
     <script src="/learnC/js/md5.js" type="text/javascript"></script>
     <script src="/learnC/js/login_logout.js" type="text/javascript"></script>
-    <script src="/learnC/js/answer.js" type="text/javascript"></script>
+    <script src="/learnC/js/answer.js"  type="text/javascript"></script>
 </head>
 <body>
     <%@include file="../layout/layout.jsp"%>
@@ -22,8 +22,10 @@
         <div class="row">
             <%@include file="../layout/nav.jsp"%>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <div style="display: none">
-                    <p>你的成绩是<%=request.getAttribute("score")%></p>
+                <div style="display: none; margin:0 auto;" id="score">
+                    <h2>你的成绩是<span style="color: #ff0000;" id="scored"></span></h2>
+                    <button id="button1" type="button" class="btn btn-success" style="display: none;" onclick="location.href='/learnC/function/page?pageId=<%=(String)request.getAttribute("pageId")%>'">重新学习</button>
+                    <button id="button2" type="button" class="btn btn-success" style="display: none;" onclick="location.href='/learnC/function/page?pageId=<%=Integer.parseInt((String)request.getAttribute("pageId")) + 1%>'">继续学习</button>
                 </div>
                 <form>
                     <p>1、下列叙述中正确的是(&nbsp;)</p>

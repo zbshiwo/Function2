@@ -13,6 +13,7 @@ public class QuestionServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pageId = (String) request.getAttribute("pageId");
+        request.setAttribute("pageId", pageId);
         request.getRequestDispatcher("/WEB-INF/views/function/question_" + pageId + ".jsp").forward(request, response);
     }
 }
