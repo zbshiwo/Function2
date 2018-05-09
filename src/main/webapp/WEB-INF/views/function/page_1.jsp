@@ -29,7 +29,7 @@
 
     <script src="/learnC/js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="/learnC/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/learnC/js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
+    <script src="/learnC/js/index.js" type="text/javascript"></script>
     <script src="/learnC/js/md5.js" type="text/javascript"></script>
     <script src="/learnC/js/login_logout.js" type="text/javascript"></script>
 
@@ -43,7 +43,7 @@
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h1 class="page-header">C 函数</h1>
 
-                <div >
+                <div>
                     <p>Ｃ源程序是由函数组成的，函数由函数首部与函数体组成，函数体包括声明部分和执行语句部分组成。</p>
                     <p>函数是一组一起执行一个任务的语句。每个 C 程序都至少有一个函数，即主函数 <b>main()</b> ，所有简单的程序都可以定义其他额外的函数。</p>
                     <p>Ｃ语言程序可以由多个源程序组成，其中一个源程序文件包含main函数，其他函数可以写在另外的源程序文件中，为单独文件，并且可以单独编译。</p>

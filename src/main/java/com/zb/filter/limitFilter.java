@@ -41,6 +41,7 @@ public class limitFilter implements Filter {
             if (pageId == null || pageId.length() == 0 || !Pattern.matches(p, pageId)) {
                 String path = "http://" + httpServletRequest.getServerName()
                         + ":" +httpServletRequest.getServerPort()
+                        + httpServletRequest.getContextPath()
                         + httpServletRequest.getServletPath()
                         + "?pageId=1";
                 httpServletResponse.sendRedirect(path);

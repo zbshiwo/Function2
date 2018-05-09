@@ -34,8 +34,8 @@ $(function () {
     for (var i = 0; i < pre.length; i++) {
         var str = pre.eq(i).text();
 
-        //匹配int,void,if,else,return使显示为绿色
-        var replace = str.replace(/((int|void|if|else|return){1}[\s|\r]+)/g, '<font color="#7fff00">$1</font>');
+        //匹配int,void,if,else,return,long,for使显示为绿色
+        var replace = str.replace(/((int|void|if|else|return|long|for){1}[\s|\r]+)/g, '<font color="#7fff00">$1</font>');
         // replace = replace.replace(/([^\/]{1}[\*]+[^\/]{1})/g, '<font color="#7fff00">$1</font>');
 
         //匹配/* */，使显示为红色

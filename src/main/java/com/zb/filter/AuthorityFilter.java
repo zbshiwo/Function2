@@ -37,11 +37,17 @@ public class AuthorityFilter implements Filter {
 
             //这里拦截没有被允许的请求
             if (arrayList.get(Integer.parseInt(pageId) - 1).getLimits() != -1){
+                httpServletRequest.setAttribute("pageId", pageId);
                 chain.doFilter(req, resp);
             }
             else {
-                httpServletRequest.setAttribute("pageId", "1");
-                chain.doFilter(httpServletRequest, httpServletResponse);
+                String path = "http://" + httpServletRequest.getServerName()
+                        + ":" +httpServletRequest.getServerPort()
+                        + httpServletRequest.getContextPath()
+                        + httpServletRequest.getServletPath()
+                        + "?pageId=1";
+                httpServletResponse.sendRedirect(path);
+                return;
             }
         }
     }

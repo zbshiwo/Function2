@@ -29,7 +29,7 @@
 
     <script src="/learnC/js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="/learnC/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/learnC/js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
+    <script src="/learnC/js/index.js" type="text/javascript"></script>
     <script src="/learnC/js/md5.js" type="text/javascript"></script>
     <script src="/learnC/js/login_logout.js" type="text/javascript"></script>
 
