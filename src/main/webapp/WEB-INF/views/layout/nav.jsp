@@ -32,7 +32,7 @@
                 <li><a href="/learnC/function/page?pageId=1">函数的定义,声明，调用</a></li>
                 <li><a href="/learnC/function/page?pageId=2">函数的传值调用和引用调用</a></li>
                 <li><a href="/learnC/function/page?pageId=3">函数的嵌套调用和递归调用</a></li>
-                <li><a href="/learnC/function/page?pageId=4">局部变量和全局变量</a></li>
+                <li><a href="/learnC/function/page?pageId=4">函数中的各种变量</a></li>
                 <li><a href="/learnC/function/page?pageId=5">变量存储类别</a></li>
                 <li><a href="/learnC/function/page?pageId=6">内部函数和外部函数</a></li>
                 <li><a href="/learnC/function/page?pageId=7">C语言的标准库函数</a></li>

@@ -41,8 +41,12 @@
         <%@include file="../layout/nav.jsp"%>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">C 函数</h1>
-
-
+            <h3>C语言的标准函数库</h3>
+            <p>C 标准库是一组 C 内置函数、常量和头文件，比如 &lt;stdio.h&gt;、&lt;stdlib.h&gt;、&lt;math.h&gt;，等等。这个标准库可以作为 C 程序员的参考手册。</p>
+            <p>C标准函数库（C Standard library）是所有符合标准的头文件（head file）的集合，以及常用的函数库实现程序，例如I/O 输入输出和字符串控制。</p>
+            <p>不像 COBOL、Fortran 和 PL/I等编程语言，在 C 语言的工作任务里不会包含嵌入的关键字，所以几乎所有的 C 语言程序都是由标准函数库的函数来创建的。</p>
+            <h4>C 标准库 - <span style="color: #7fff00">&lt;math.h&gt;</span></h4>
+            <p>math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。</p>
         </div>
     </div>
 </div>
