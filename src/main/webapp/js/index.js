@@ -1,6 +1,15 @@
 $(function () {
     // var $registerBox = $('#registerBox');
 
+    var arrays = $('#ulr').find('a');
+    var str = 0;
+    for (var i = 0; i <= arrays.length; i++) {
+        arrays.eq(i).on('click', function () {
+            str = i + 1;
+            window.location.href = '/learnC/function/page?pageId=' + i;
+        });
+    }
+
     //增加点击事件,在屏幕分辨率小于768时,改变格式
     $('#center').click(function () {
         var width = $('body').width() + 15;
