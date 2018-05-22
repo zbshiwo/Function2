@@ -75,7 +75,24 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
             preparedStatement.setInt(1, score);
             preparedStatement.setInt(2, sid);
             preparedStatement.setString(3, moduleName);
-            resultSet = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeAll(resultSet, preparedStatement, connection);
+        }
+    }
+
+    @Override
+    public void updateLimitsBySidAndModuleName(int sid, String moduleName, byte limits) {
+        String sql = "UPDATE studentinfo SET limits = ? WHERE sid = ? AND module_name = ?";
+        try {
+            connection = DBUtil.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setByte(1, limits);
+            preparedStatement.setInt(2, sid);
+            preparedStatement.setString(3, moduleName);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

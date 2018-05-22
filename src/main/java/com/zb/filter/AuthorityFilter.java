@@ -33,11 +33,20 @@ public class AuthorityFilter implements Filter {
         else {
             StudentInfoDao studentInfoDao = new StudentInfoDaoImpl();
             ArrayList<StudentInfo> arrayList = studentInfoDao.queryBySidAndModuleName(userId);
-            //这里给nav.jsp发送一个标记，从数据库中查出这个pageId的所有score放在ArrayList里面，根据这个ArrayList加载nav
 
             //这里拦截没有被允许的请求
             if (arrayList.get(Integer.parseInt(pageId) - 1).getLimits() != -1){
+                //这里给nav.jsp发送一个标记，从数据库中查出这个pageId的所有score放在ArrayList里面，根据这个ArrayList加载nav
+                int authority = 1;
+                for(int i = 0; i < arrayList.size(); i++){
+                    if (arrayList.get(i).getScore() >= 60) {
+                        authority ++;
+                    }
+                    else break;
+                }
+                httpServletRequest.setAttribute("authority", authority);
                 httpServletRequest.setAttribute("pageId", pageId);
+                httpServletRequest.setAttribute("userId", userId);
                 chain.doFilter(req, resp);
             }
             else {

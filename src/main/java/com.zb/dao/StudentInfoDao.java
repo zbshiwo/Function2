@@ -11,4 +11,6 @@ public interface StudentInfoDao {
     public ArrayList<StudentInfo> queryBySidAndModuleName(int sid);
     //通过sid和module_name修改学生成绩
     public void updateScoreBySidAndModuleName(int sid, String moduleName, int score);
+    //通过sid和module_name修改学生limit
+    public void updateLimitsBySidAndModuleName(int sid, String moduleName, byte limits);
 }
